@@ -13,7 +13,7 @@ jobs:
 
 
     env:
-      IMAGE_NAME: todo-add-tasks-api
+      IMAGE_NAME: todo-Get-tasks-api
       IMAGE_TAG: v1
       ACR_NAME: acr02810
       ACR_LOGIN_SERVER: acr02810.azurecr.io
