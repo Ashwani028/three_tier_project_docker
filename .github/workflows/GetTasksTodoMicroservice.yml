@@ -11,12 +11,11 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-
     env:
-      IMAGE_NAME: todo-Get-tasks-api
+      IMAGE_NAME: todo-get-tasks-api
       IMAGE_TAG: v1
-      ACR_NAME: acr02810
-      ACR_LOGIN_SERVER: acr02810.azurecr.io
+      ACR_NAME: acrdevtodoapp01
+      ACR_LOGIN_SERVER: acrdevtodoapp01.azurecr.io
 
     steps:
       - name: Checkout code
@@ -25,9 +24,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: 3976a2dd-67d3-4143-99ad-1a91bcccbbbb
-          tenant-id: 6780ca35-9ef2-4e3d-9abe-b26fab9e2ed1
-          subscription-id: b7e2d3dd-2fa8-4498-90b2-8ed4b08e15ee
+          client-id: ff27bcf6-f60c-4a57-8b01-8eee5de2a9cd
+          tenant-id: 0f7010fd-209e-4344-8457-043ffb37143b
+          subscription-id: 1075ec7a-b17a-4f37-bf3f-9d68c4506dc1
 
       - name: Log in to ACR
         run: |
@@ -35,7 +34,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $IMAGE_NAME:$IMAGE_TAG -f GetTasksTodoMicroservice/Dockerfile GetTasksTodoMicroservice
+          docker build -t $IMAGE_NAME:$IMAGE_TAG .
 
       - name: Tag Docker Image for ACR
         run: |
